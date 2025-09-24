@@ -1,11 +1,18 @@
 const form = document.getElementById('proxyForm');
+const iframe = document.getElementById('proxyFrame');
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const url = document.getElementById('urlInput').value;
-    
-    // ← REPLACE THIS with your LunarSync backend URL
-    const backendURL = 'https://lunarsync.smartfoloo.space';
+    let url = document.getElementById('urlInput').value;
 
-    window.location.href = backendURL + encodeURIComponent(url);
+    // Ensure the URL has https:// at the start
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+    }
+
+    // Your LunarSync backend URL (with trailing slash!)
+    const backendURL = 'https://YOUR-LUNARSYNC-BACKEND/';
+
+    // Load the site inside the iframe
+    iframe.src = backendURL + encodeURIComponent(url) + '/';
 });
