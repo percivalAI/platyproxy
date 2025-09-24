@@ -5,7 +5,7 @@ form.addEventListener('submit', function(e) {
     const url = document.getElementById('urlInput').value;
     
     // ← REPLACE THIS with your LunarSync backend URL
-    const backendURL = 'https://YOUR-LUNARSYNC-BACKEND/';
+    const backendURL = 'https://lunarsync.smartfoloo.space';
 
     window.location.href = backendURL + encodeURIComponent(url);
 });
